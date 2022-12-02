@@ -1,7 +1,6 @@
 resource "google_compute_firewall" "labnet-allow-internal" {
   name          = "labnet-allow-internal"
   network       = google_compute_network.labnet.name
-  project       = var.project_id
   source_ranges = ["0.0.0.0/0"]
 
   allow {
@@ -21,7 +20,6 @@ resource "google_compute_firewall" "labnet-allow-internal" {
 resource "google_compute_firewall" "privatenet-deny" {
   name          = "privatenet-deny"
   network       = google_compute_network.privatenet.name
-  project       = var.project_id
   source_ranges = ["0.0.0.0/0"]
 
   deny {
